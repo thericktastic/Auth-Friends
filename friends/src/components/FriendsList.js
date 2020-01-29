@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
+// components
+import FriendForm from "./FriendForm";
+
 class FriendsList extends Component {
   state = {
     friendsList: []
@@ -28,8 +31,9 @@ class FriendsList extends Component {
       <React.Fragment>
         <div>
           <h1>Welcome to your friends list!</h1>
+          <FriendForm />
           {this.state.friendsList.map(friend => (
-            <p>{friend.name}</p>
+            <p key={friend.id}>{friend.name}</p>
           ))}
         </div>
       </React.Fragment>
